@@ -182,7 +182,8 @@ public class DaoProduto {
                 + "SET Nome = ?, "
                 + "Descricao = ?, "
                 + "Preco = ?, "
-                + "Tipo = ? "
+                + "Tipo = ?, "
+                + "Ativo = ? "
                 + "WHERE ID = ?;";
 
         Connection connection = null;
@@ -195,7 +196,8 @@ public class DaoProduto {
             statement.setString(2, pizza.getDescricao());
             statement.setString(3, pizza.getPreco());
             statement.setString(4, pizza.getTipo());
-            statement.setInt(5, pizza.getCodigo());
+            statement.setString(5, pizza.getAtivo());
+            statement.setInt(6, pizza.getCodigo());
             System.out.println(statement.toString());
 
             System.out.println("Executando COMANDO SQL: " + sql);
@@ -208,6 +210,33 @@ public class DaoProduto {
                 connection.close();
             }
         }
+    }
+    
+    public static Produto obter(int id)
+            throws SQLException, Exception {
+        String sql = "SELECT * FROM tb_produto WHERE ID = ?;";
+
+        PreparedStatement statement = null;
+        Connection connection = null;
+        Produto produto = new Produto();
+        connection = ConnectionUtils.getConnection();
+        statement = connection.prepareStatement(sql);
+        statement.setInt(1, id);
+        System.out.println(statement.toString());
+        ResultSet result = null;
+        result = statement.executeQuery();
+
+        while (result.next()) {
+
+            produto.setCodigo(result.getInt("ID"));
+            produto.setNome(result.getString("NOME"));
+            produto.setDescricao(result.getString("DESCRICAO"));
+            produto.setPreco(result.getString("PRECO"));
+            produto.setAtivo(result.getString("ATIVO"));
+            produto.setTipo(result.getString("TIPO"));
+        }
+
+        return produto;
     }
     
     public static boolean verificarUsuario (String login, String senha) throws

@@ -2,34 +2,38 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="./_resources/estiloLogin.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./_imagens/favicon1.ico" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <title>Login</title>
   </head>
   <body>
-    <section>
-      <div id="principal" class="form-group">
-				<div id="titulo">
-					<h1>Manutenção</h1>
-        </div>
+    <section class="container-fluid">
+      <div class="row justify-content-center">
+          <form class="col-xs-12 col-sm-12 col-lg-4" action="Login" method="post">
 
-        <form action="Login" method="post" id="formlogin">
-          <div id="username">
-            <input class="form-control" type="text" name="user" placeholder="Usuário">
-          </div>
+            <h1 class="text-center">Login</h1>
 
-          <div id="pass">
-            <input class="form-control" type="password" name="senha" placeholder="Senha">
-          </div>
+            <div class="form-group">
+              <label for="loginUser">Usuário</label>
+              <input class="form-control" type="text" name="user">
+            </div>
 
-          <div id="botao">
-            <button id="botaologin" class="btn btn-primary" type="submit" name="login">Entrar</button>
-          </div>
-        </form>
+            <div class="form-group">
+              <label for="passwordUser">Senha</label>
+              <input class="form-control" type="password" name="senha">
+            </div>
+
+            <div class="form-group">
+              <button class="form-control btn btn-primary" type="submit">Entrar</button>
+            </div>
+          </form>
       </div>
-      </section>
+    </section>
 
   </body>
 </html>
-

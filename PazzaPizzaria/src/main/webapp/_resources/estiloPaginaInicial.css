@@ -98,7 +98,12 @@ hr.style6 {
   }
 }
 
+#img-full {
+  padding: 0;
+}
+
 #imagem-pizza-1 {
+  width: 100%;
 }
 
 #carouselExampleIndicators {

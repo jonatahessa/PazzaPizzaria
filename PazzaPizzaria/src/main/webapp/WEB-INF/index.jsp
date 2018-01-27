@@ -15,7 +15,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
         <link rel="shortcut icon" href="./_imagens/favicon1.ico" />
         <script type="text/javascript" src="./_resources/domPaginaInicial.js"></script>
-        <title>Modelo Pizzaria</title>
+        <title>Pizzaria Pazza</title>
     </head>
     <body>
         <section class="container-fluid">
@@ -44,7 +44,9 @@
             </div>
 
             <div class="row">
+              <div id="img-full" class="col-12">
                 <img id="imagem-pizza-1" class="img-fluid" src="./_imagens/calabresa.jpg" alt="imagem de uma pizza de calabresa">
+              </div>
             </div>
 
             <div id="faixa-contato" class="row">

@@ -53,10 +53,9 @@ public class Utils {
     }
     
     public static List<Produto> ListarPizzasPaginaInicialPromocoes() throws Exception {
-        List<Produto> pizzas = new ArrayList<>();
-        pizzas = br.com.pizzariadomenico.Daos.DaoProduto.listarPaginaInicialPromocoes();
+        List<Produto> produto = br.com.pizzariadomenico.Daos.DaoProduto.listarPaginaInicialPromocoes();
 
-        return pizzas;
+        return produto;
     }
 
     public static void inserirPizza(Produto pizza) throws Exception {
@@ -73,6 +72,12 @@ public class Utils {
 
     public static void alterar(Produto pizza) throws Exception {
         br.com.pizzariadomenico.Daos.DaoProduto.alterar(pizza);
+    }
+    
+    public static Produto obter(int id) throws Exception {
+        Produto produto = br.com.pizzariadomenico.Daos.DaoProduto.obter(id);
+        
+        return produto;
     }
 
     public static String criptografia(String password) throws NoSuchAlgorithmException,

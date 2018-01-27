@@ -34,8 +34,8 @@ public class Manutencao extends HttpServlet {
             RequestDispatcher dispatcher = request.getRequestDispatcher("/Entrar");
             dispatcher.forward(request, response);
         } else {
-            List<Produto> pizzas = Utils.ListarPizzasManutencao();
-            request.setAttribute("sabores", pizzas);
+            List<Produto> produtos = Utils.ListarPizzasManutencao();
+            request.setAttribute("produtos", produtos);
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/manutencao.jsp");
             response.setContentType("UTF-8");
             dispatcher.forward(request, response);

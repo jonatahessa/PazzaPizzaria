@@ -49,8 +49,7 @@ public class Login extends HttpServlet {
         if (confirma) {
             HttpSession sessao = request.getSession();
             sessao.setAttribute("logado", true);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/Manutencao");
-            dispatcher.forward(request, response);
+            response.sendRedirect("Manutencao");
         } else {
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/login.jsp");
             dispatcher.forward(request, response);

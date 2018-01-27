@@ -3,169 +3,86 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="./_resources/estiloManutencao.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-        <script type="text/javascript" src="./_resources/domManutencao.js"></script>
-        <title>Manutenção</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="./_imagens/favicon1.ico" />
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+      <title>Manutenção</title>
     </head>
     <body>
-        <section id="sessaoprincipal">
-
-          <div id="logout">
-            <form action="Logout" method="post">
-              <button type="submit" name="button"><span class="glyphicon glyphicon-off"></span> Sair</button>
-            </form>
-
+      <section id="barra-superior" class="container-fluid">
+          <div class="row">
+              <div class="col-12">
+                  <h1 class="text-center">Manutenção</h1>
+              </div>
           </div>
-            <div id="titulo">
-                <h1>Manutenção</h1>
+
+          <div class="row justify-content-end">
+            <div class="col-3">
+              <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Opções</button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="AbrirEditar">Novo Produto</a>
+                  <a class="dropdown-item" href="Logout">Sair</a>
+                </div>
+              </div>
             </div>
+          </div>
+      </section>
 
-            <div id="divnovo">
-                <button id="novo" type="button" class="btn btn-primary" name="novo">Novo</button>
-            </div>
+      <section class="container-fluid">
 
-            <div id="pizzas">
-
-                <table class="table table-striped" id="tabelapizzas">
+            <div id="pizzas" class="row justify-content-center">
+                <table class="table table-hover">
+                  <thead>
                     <tr>
-                        <th>Código</th>
-                        <th>Nome</th>
-                        <th>Ingredientes</th>
-                        <th>Preço</th>
-                        <th>Status</th>
-                        <th>Tipo</th>
-                        <th>Editar</th>
-                        <th>Remover</th>
+                        <th scope="col">Código</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Preço</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Ativo</th>
+                        <th scope="col">Editar</th>
+                        <th scope="col">Status</th>
                     </tr>
-                    <c:forEach var="pizzas" items="${sabores}">
-                        <tr>
-                            <td class="celulas">${pizzas.codigo}</td>
-                            <td class="celulas">${pizzas.nome}</td>
-                            <td>${pizzas.descricao}</td>
-                            <td class="celulas">${pizzas.preco}</td>
-                            <td class="celulas">${pizzas.ativo}</td>
-                            <td class="celulas">${pizzas.tipo}</td>
-                            <td><form action="#" onsubmit="return abrirEditar(this);" method="post">
-                                    <input type="hidden" name="codigo" value="${pizzas.codigo}"/>
-                                    <input type="hidden" name="nome" value="${pizzas.nome}"/>
-                                    <input type="hidden" name="descricao" value="${pizzas.descricao}"/>
-                                    <input type="hidden" name="preco" value="${pizzas.preco}"/>
-                                    <input type="hidden" name="tipo" value="${pizzas.tipo}"/>
-                                    <button type="submit" class="btn btn-warning editar" name="botaoeditar">Editar</button>
-                                </form>
-                            </td>
-                            <c:choose>
-                                <c:when test="${pizzas.ativo eq 'SIM'}">
-                                    <td><form method="post" action="Remover">
-                                            <input type="hidden" name="codigo" value="${pizzas.codigo}"/>
-                                            <button type="submit" class="btn btn-danger" name="botaodesativar">Desativar</button>
-                                        </form></td>
-                                    </c:when>
-                                    <c:otherwise><td><form method="post" action="Ativar">
-                                            <input type="hidden" name="codigo" value="${pizzas.codigo}"/>
-                                            <button type="submit" class="btn btn-success" name="botaoativa">Ativar</button>
-                                        </form></td>
-                                    </c:otherwise>
-                                </c:choose>
-                        </tr>
-                    </c:forEach>
+                  </thead>
+                  <tbody>
+                    <c:forEach var="produto" items="${produtos}">
+                    <tr>
+                      <td>${produto.codigo}</td>
+                      <td>${produto.nome}</td>
+                      <td>${produto.descricao}</td>
+                      <td>${produto.preco}</td>
+                      <td>${produto.tipo}</td>
+                      <td>${produto.ativo}</td>
+                      <td><form action="AbrirEditar" method="get">
+                        <input type="hidden" name="codigo-editar" value="${produto.codigo}">
+                          <button class="btn btn-warning btn-block" type="submit" name="button">Editar</button>
+                      </form></td>
+                      <td><form action="AtivarDesativar" method="post">
+                        <input type="hidden" name="codigo-ativar" value="${produto.codigo}">
+
+                          <c:choose>
+                            <c:when test="${produto.ativo == 'SIM'}">
+                                <c:set value="btn-danger" var="cssClass"></c:set>
+                                <c:set value="Desativar" var="textbtn"></c:set>
+                              </c:when>
+                              <c:otherwise>
+                                <c:set value="btn-success" var="cssClass"></c:set>
+                                <c:set value="Ativar" var="textbtn"></c:set>
+                              </c:otherwise>
+                            </c:choose>
+
+                        <button class="btn ${cssClass} btn-block" type="submit">${textbtn}</button>
+                      </form>
+                    </tr>
+                  </c:forEach>
+                  </tbody>
                 </table>
             </div>
         </section>
-
-        <section id="janelanovo">
-            <form id="formnovo" action="Adicionar" method="post">
-
-                <div id="titulo" class="camposform">
-                    <h2>Novo</h2>
-                </div>
-
-                <div id="nome" class="form-group camposform">
-                    <label for="nome">Nome</label>
-                    <input class="form-control inputsnovo" type="text" name="nome"/>
-                </div>
-
-                <div id="descricao" class="form-group camposform">
-                    <label for="descricao">Descrição</label>
-                    <textarea class="form-control inputsnovo" rows="4" name="descricao"></textarea>
-                </div>
-
-                <div id="preco" class="form-group camposform">
-                    <label for="preco">Preço</label>
-                    <input class="form-control inputsnovo" type="text" name="preco"/>
-                </div>
-
-                <div id="tipo" class="form-group camposform">
-                    <label for="tipo">Tipo</label>
-                    <select class="form-control" name="tipo">
-                        <option value="PIZZA">Pizza</option>
-                        <option value="ESFIHA">Esfiha</option>
-                        <option value="PIZZA/FOGAZZA">Pizza/Fogazza</option>
-                        <option value="FOGAZZA">Fogazza</option>
-                        <option value="BORDA">Borda</option>
-                        <option value="BEBIDA">Bebida</option>
-                        <option value="PROMOCAO">Promoção</option>
-                    </select>
-                </div>
-
-                <div id="botoesnovo">
-                    <button id="cancelanovo" type="button" class="btn btn-danger" name="button">Cancelar</button>
-                    <button id="salvanovo" type="submit" class="btn btn-success" name="button">Salvar</button>
-                </div>
-
-            </form>
-        </section>
-
-        <section id="janelaeditar">
-            <form id="formeditar" action="Editar" method="post">
-
-                <div id="tituloeditar" class="camposform">
-                    <h2>Editar</h2>
-                </div>
-
-                <div id="codigoeditar" class="form-group camposform">
-                    <label for="codigo">Código</label>
-                    <input class="form-control inputseditar" type="text" name="codigo" readonly/>
-                </div>
-
-                <div id="nomeeditar" class="form-group camposform">
-                    <label for="nome">Nome</label>
-                    <input class="form-control inputseditar" type="text" name="nome"/>
-                </div>
-
-                <div id="descricaoeditar" class="form-group camposform">
-                    <label for="descricao">Descrição</label>
-                    <textarea class="form-control inputseditar" rows="4" name="descricao"></textarea>
-                </div>
-
-                <div id="precoeditar" class="form-group camposform">
-                    <label for="preco">Preço</label>
-                    <input class="form-control inputseditar" type="text" name="preco"/>
-                </div>
-
-                <div id="tipoeditar" class="form-group camposform">
-                    <label for="tipo">Tipo</label>
-                    <select id="selecteditar" class="form-control" name="tipo">
-
-                    </select>
-                </div>
-
-                <div id="botoeseditar">
-                    <button id="cancelaeditar" type="button" class="btn btn-danger" name="button">Cancelar</button>
-                    <button id="salvaeditar" type="submit" class="btn btn-success" name="button">Salvar</button>
-                </div>
-
-            </form>
-        </section>
-
-        <div id="nevoa">
-
-        </div>
     </body>
 </html>

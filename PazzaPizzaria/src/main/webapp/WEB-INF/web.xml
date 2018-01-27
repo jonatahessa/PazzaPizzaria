@@ -9,12 +9,16 @@
         <servlet-class>br.com.pizzariadomenico.Process.GetSabores</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Ativar</servlet-name>
-        <servlet-class>br.com.pizzariadomenico.Process.Ativar</servlet-class>
+        <servlet-name>AtivarDesativar</servlet-name>
+        <servlet-class>br.com.pizzariadomenico.Process.AtivarDesativar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Salvar</servlet-name>
+        <servlet-class>br.com.pizzariadomenico.Process.Salvar</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Editar</servlet-name>
-        <servlet-class>br.com.pizzariadomenico.Process.Editar</servlet-class>
+        <servlet-class>br.com.pizzariadomenico.Process.Salvar</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Entrar</servlet-name>
@@ -36,22 +40,22 @@
         <servlet-name>Remover</servlet-name>
         <servlet-class>br.com.pizzariadomenico.Process.Remover</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>Adicionar</servlet-name>
-        <url-pattern>/Adicionar</url-pattern>
-    </servlet-mapping>
+    <servlet>
+        <servlet-name>AbrirEditar</servlet-name>
+        <servlet-class>br.com.pizzariadomenico.Process.AbrirEditar</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>GetSabores</servlet-name>
         <url-pattern>/GetSabores</url-pattern>
         <url-pattern>/index.html</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Ativar</servlet-name>
-        <url-pattern>/Ativar</url-pattern>
+        <servlet-name>AtivarDesativar</servlet-name>
+        <url-pattern>/AtivarDesativar</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Editar</servlet-name>
-        <url-pattern>/Editar</url-pattern>
+        <servlet-name>Salvar</servlet-name>
+        <url-pattern>/Salvar</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Entrar</servlet-name>
@@ -73,10 +77,13 @@
         <servlet-name>Remover</servlet-name>
         <url-pattern>/Remover</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AbrirEditar</servlet-name>
+        <url-pattern>/AbrirEditar</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-    
 </web-app>

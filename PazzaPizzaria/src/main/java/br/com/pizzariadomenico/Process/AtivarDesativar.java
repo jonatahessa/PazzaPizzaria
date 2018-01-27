@@ -21,8 +21,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author jonat
  */
-@WebServlet(name = "Adicionar", urlPatterns = {"/Adicionar"})
-public class Adicionar extends HttpServlet {
+@WebServlet(name = "AtivarDesativar", urlPatterns = {"/AtivarDesativar"})
+public class AtivarDesativar extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -39,28 +39,23 @@ public class Adicionar extends HttpServlet {
             RequestDispatcher dispatcher = request.getRequestDispatcher("/Entrar");
             dispatcher.forward(request, response);
         } else {
-            if (request.getParameter("nome").equalsIgnoreCase("") || request.getParameter("nome") == null) {
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/Manutencao");
-                dispatcher.forward(request, response);
-            } else {
-                Produto produto = new Produto();
-                produto.setNome(request.getParameter("nome"));
-                produto.setDescricao(request.getParameter("descricao"));
-                produto.setPreco(request.getParameter("preco"));
-                produto.setTipo(request.getParameter("tipo"));
-                request.setAttribute("nome", null);
-                request.setAttribute("descricao", null);
-                request.setAttribute("preco", null);
-                request.setAttribute("tipo", null);
-
+            Produto produto = new Produto();
+            try {
                 try {
-                    Utils.inserirPizza(produto);
-                    RequestDispatcher dispatcher = request.getRequestDispatcher("/Manutencao");
-                    request.getRequestDispatcher("/Manutencao").forward(request, response);
+                    produto = Utils.obter(Integer.parseInt(request.getParameter("codigo-ativar")));
                 } catch (Exception ex) {
-                    RequestDispatcher dispatcher = request.getRequestDispatcher("/Manutencao");
-                    dispatcher.forward(request, response);
+                    Logger.getLogger(AbrirEditar.class.getName()).log(Level.SEVERE, null, ex);
                 }
+
+                if (produto.getAtivo().equalsIgnoreCase("SIM")) {
+                    produto.setAtivo("NAO");
+                } else {
+                    produto.setAtivo("SIM");
+                }
+                Utils.alterar(produto);
+                response.sendRedirect("Manutencao");
+            } catch (Exception ex) {
+                response.sendRedirect("Manutencao");
             }
         }
     }
