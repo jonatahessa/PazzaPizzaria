@@ -161,7 +161,7 @@
                 <div class="col-xs-12 col-sm-12 col-lg-10 sessoes-posicao">
                     <h1 class="titulos font-kalam">Contato</h1>
                     <hr/>
-                    <h2 class="text-center display-3">
+                    <h2 class="text-center display-4">
                         <a href="tel:01156253599">5625-3599</a><br>
                         <a href="tel:01156219840">5621-9840</a><br>
                         <a href="tel:01156252285">5625-2285</a><br>
