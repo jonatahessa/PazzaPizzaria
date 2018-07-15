@@ -59,6 +59,10 @@
                         <a href="tel:011953470086">95347-0086</a>
                         <img class="col-1" src="./_imagens/whatsapp.png" alt="whatsapp">
                     </h2>
+                    <h2 class="text-center">
+                        <a href="tel:011961635054">96163-5054</a>
+                        <img class="col-1" src="./_imagens/whatsapp.png" alt="whatsapp">
+                    </h2>
                 </div>
             </div>
 
@@ -113,6 +117,7 @@
                         <button type="button" class="botoes-cardapio font-kalam" data-toggle="modal" data-target="#modal-pizzas">
                             <h3>Clique para abrir as Pizzas Salgadas</h3>
                         </button>
+                        <p class="text-center">* Cobertura extra: R$ 3,00</p>
                     </div>
 
                     <div class="col-12">
@@ -125,6 +130,7 @@
                         <button type="button" class="botoes-cardapio font-kalam" data-toggle="modal" data-target="#modal-calzones">
                             <h3>Clique para abrir as Calzones</h3>
                         </button>
+                        <p class="text-center">* Fazemos Calzones de todas as pizzas do cardápio com acréssimo de R$ 5,00 no valor da pizza.</p>
                     </div>
                 </div>
             </div>
@@ -132,7 +138,7 @@
             <c:if test="${novidades != null}">
             <div class="row" id="sessaonovidades">
                 <div class="col-xs-12 col-sm-12 col-lg-10 sessoes-estilo sessoes-posicao">
-                    <h1 class="titulos font-kalam">Novidade</h1>
+                    <h1 class="titulos font-kalam">Novidades</h1>
                     <hr/>
                     <div class="row justify-content-center">
                         <c:forEach var="novidade" items="${novidades}">
@@ -162,12 +168,14 @@
                     <h1 class="titulos font-kalam">Contato</h1>
                     <hr/>
                     <h2 class="text-center display-4">
-                        <a href="tel:01156253599">5625-3599</a><br>
-                        <a href="tel:01156219840">5621-9840</a><br>
-                        <a href="tel:01156252285">5625-2285</a><br>
-                        <a href="tel:01156227264">5622-7264</a><br>
+                        <a href="tel:01156253599">5625-3599</a><br/>
+                        <a href="tel:01156219840">5621-9840</a><br/>
+                        <a href="tel:01156252285">5625-2285</a><br/>
+                        <a href="tel:01156227264">5622-7264</a><br/>
                         <a href="tel:011953470086">95347-0086</a>
-                        <img class="col-1" src="./_imagens/whatsapp.png" alt="whatsapp">
+                        <img class="col-1" src="./_imagens/whatsapp.png" alt="whatsapp"/><br/>
+                        <a href="tel:011961635054">96163-5054</a>
+                        <img class="col-1" src="./_imagens/whatsapp.png" alt="whatsapp"/>
                     </h2>
 
                     <p class="text-center">De Domingo à Quinta das 18h às 00h<br/>
